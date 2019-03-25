@@ -47,12 +47,14 @@ bot.on('guildMemberRemove', quit => {
 
 bot.on('message', message => {
     if(!message.guild) return;
-    if(!message.member.hasPermission('MANAGE_MESSAGES'))
+
+    if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
+    
     if(message.content === prefix + 'clear') {
         message.channel.bulkDelete(100)
 
     }
-})
+});
 
 
 // LOGIN
