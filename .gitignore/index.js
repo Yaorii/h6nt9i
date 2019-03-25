@@ -26,7 +26,7 @@ bot.on('guildMemberAdd', join => {
         .setColor('468abb')
         .setDescription('Bienvenue ' + join.user + ' sur ' + join.guild.name)
         .setFooter('Nous sommes désormais ' + join.guild.memberCount)
-        .setTimestamp(join.user.avatarURL)
+        .setTimestamp(join.user.displayAvatarURL)
     join.guild.channels.get('558690513285414943').send(embed)
 
 });
@@ -37,8 +37,8 @@ bot.on('guildMemberRemove', quit => {
         .setColor('468abb')
         .setDescription(quit.user.username + ' à quitter ' + quit.guild.name)
         .setFooter('Dommage, au revoir ')
-        .setTimestamp(quit.user.avatarURL)
-    join.guild.channels.get('558690513285414943').send(embed)
+        .setTimestamp(quit.user.displayAvatarURL)
+    quit.guild.channels.get('558690513285414943').send(embed)
 
 });
 
