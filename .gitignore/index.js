@@ -18,14 +18,19 @@ bot.on('message', message => {
     
 });
 
+// JOIN + QUIT
+
 bot.on('guildMemberAdd', join => {
     let embed = new Discord.RichEmbed()
         .setAuthor(join.guild.name, join.guild.iconURL)
         .setColor('468abb')
-        .setDescription('Bienvenue' + join.user.username + 'sur' + join.guild.name)
-        .setFooter('Nous sommes désormais' + join.guild.memberCount)
+        .setDescription('Bienvenue ' + join.user + ' sur ' + join.guild.name)
+        .setFooter('Nous sommes désormais ' + join.guild.memberCount)
+        .setTimestamp(join.user.displayAvatarURL)
     join.guild.channels.get('558690513285414943').send(embed)
 
 });
+
+// LOGIN
 
 bot.login('NTU5NzY5MjcwODA5MjY0MTM4.D3qOxg.4aHyyYYqSz-YK3UNi9-7F41EaHE');
