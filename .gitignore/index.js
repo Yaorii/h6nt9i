@@ -31,7 +31,7 @@ bot.on('guildMemberAdd', join => {
 
 });
 
-bot.on('guildMemberAdd', quit => {
+bot.on('guildMemberRemove', quit => {
     let embed = new Discord.RichEmbed()
         .setAuthor(quit.guild.name, quit.guild.iconURL)
         .setColor('468abb')
