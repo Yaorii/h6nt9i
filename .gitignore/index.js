@@ -26,7 +26,18 @@ bot.on('guildMemberAdd', join => {
         .setColor('468abb')
         .setDescription('Bienvenue ' + join.user + ' sur ' + join.guild.name)
         .setFooter('Nous sommes désormais ' + join.guild.memberCount)
-        .setTimestamp(join.user.displayAvatarURL)
+        .setTimestamp(join.user.avatarURL)
+    join.guild.channels.get('558690513285414943').send(embed)
+
+});
+
+bot.on('guildMemberAdd', quit => {
+    let embed = new Discord.RichEmbed()
+        .setAuthor(quit.guild.name, quit.guild.iconURL)
+        .setColor('468abb')
+        .setDescription(quit.user.username + ' à quitter ' + join.guild.name)
+        .setFooter('Dommage, au revoir ')
+        .setTimestamp(quit.user.avatarURL)
     join.guild.channels.get('558690513285414943').send(embed)
 
 });
