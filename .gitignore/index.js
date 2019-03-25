@@ -64,7 +64,7 @@ bot.on('message', message => {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(":x: Vous ne pouvez pas utilliser cette commande !");
 
     if(message.content === prefix + 'info'){
-        let botmessage = args.join(" ");
+        let botmessage = args.message(" ");
         message.guild.channels.get('558679846130155520').send('@everyone' + botmessage)
 
     }
