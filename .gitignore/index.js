@@ -35,7 +35,7 @@ bot.on('guildMemberRemove', quit => {
     let embed = new Discord.RichEmbed()
         .setAuthor(quit.guild.name, quit.guild.iconURL)
         .setColor('468abb')
-        .setDescription(quit.user.username + ' à quitter ' + join.guild.name)
+        .setDescription(quit.user.username + ' à quitter ' + quit.guild.name)
         .setFooter('Dommage, au revoir ')
         .setTimestamp(quit.user.avatarURL)
     join.guild.channels.get('558690513285414943').send(embed)
