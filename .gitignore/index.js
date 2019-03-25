@@ -48,8 +48,8 @@ bot.on('guildMemberRemove', quit => {
 bot.on('message', message => {
     if(!message.guild) return;
 
-    if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
-    
+    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(":x: Vous ne pouvez pas utilliser cette commandes");
+
     if(message.content === prefix + 'clear') {
         message.channel.bulkDelete(100)
 
