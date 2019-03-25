@@ -49,7 +49,7 @@ bot.on('message', message => {
     if(!message.guild) return;
     if(!message.member.hasPermission('MANAGE_MESSAGES'))
     if(message.content === prefix + 'clear') {
-        message.channel.bulkDelete(message)
+        message.channel.bulkDelete(100)
 
     }
 })
