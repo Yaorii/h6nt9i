@@ -6,6 +6,8 @@ var bot = new Discord.Client();
 
 bot.on('ready', function() {
     bot.user.setActivity('le serveur', {type: "WATCHING"});
+    bot.user.setStatus('online')
+    message.guild.channels.get('558680058055884830').send(":boticon: Chargement Terminer.")
     console.log("Le bot est bien connecté");
 });
 
@@ -14,7 +16,6 @@ bot.on('ready', function() {
 bot.on('message', message => {
     if(message.content === 'Yo'){
         message.channel.send('Salut');
-        message.guild.channels.get('558680058055884830').send(":boticon: Chargement Terminés.")
     }
     
 });
@@ -36,7 +37,7 @@ bot.on('guildMemberAdd', join => {
 bot.on('guildMemberRemove', quit => {
     let embed = new Discord.RichEmbed()
         .setAuthor(quit.guild.name, quit.guild.iconURL)
-        .setColor('468abb')
+        .setColor('#468abb')
         .setDescription(quit.user.username + ' à quitter ' + quit.guild.name)
         .setFooter('Dommage, au revoir ')
         .setTimestamp(quit.user.displayAvatarURL)
@@ -49,13 +50,25 @@ bot.on('guildMemberRemove', quit => {
 bot.on('message', message => {
     if(!message.guild) return;
 
-    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(":x: Vous ne pouvez pas utilliser cette commandes !");
+    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(":x: Vous ne pouvez pas utilliser cette commande !");
 
     if(message.content === prefix + 'clear') {
         message.channel.bulkDelete(100)
 
     }
 });
+
+bot.on('message', message => {
+    if(!message.guild) return;
+
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(":x: Vous ne pouvez pas utilliser cette commande !");
+
+    if(message.content === prefix + 'info'){
+        let botmessage = args.join(" ");
+        message.guild.channels.get('558679846130155520').send('@everyone' + botmessage)
+
+    }
+})
 
 
 // LOGIN
