@@ -43,6 +43,18 @@ bot.on('guildMemberRemove', quit => {
 
 });
 
+// command
+
+bot.on('message', message => {
+    if(!message.guild) return;
+    if(!message.member.hasPermission('MANAGE_MESSAGES'))
+    if(message.content === prefix + 'clear') {
+        message.channel.bulkDelete(message)
+
+    }
+})
+
+
 // LOGIN
 
 bot.login('NTU5NzY5MjcwODA5MjY0MTM4.D3qOxg.4aHyyYYqSz-YK3UNi9-7F41EaHE');
