@@ -28,6 +28,7 @@ bot.on('guildMemberAdd', join => {
         .setFooter('Nous sommes désormais ' + join.guild.memberCount)
         .setTimestamp(join.user.displayAvatarURL)
     join.guild.channels.get('558690513285414943').send(embed)
+    join.addRole('558716724866842647')
 
 });
 
